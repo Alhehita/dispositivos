@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/saveFireStoreFragment">
+
+    <fragment
+        android:id="@+id/listarMoviesPopularityFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.ListarMoviesPopularityFragment"
+        android:label="fragment_listar_movies_popularity"
+        tools:layout="@layout/fragment_listar_movies_popularity" />
+    <fragment
+        android:id="@+id/saveFireStoreFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.SaveFireStoreFragment"
+        android:label="fragment_save_fire_store"
+        tools:layout="@layout/fragment_save_fire_store" >
+        <action
+            android:id="@+id/action_saveFireStoreFragment_to_listarMoviesPopularityFragment"
+            app:destination="@id/listarMoviesPopularityFragment" />
+    </fragment>
+</navigation>
