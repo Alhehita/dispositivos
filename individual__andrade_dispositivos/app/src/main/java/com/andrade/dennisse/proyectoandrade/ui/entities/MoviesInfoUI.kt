@@ -1,5 +1,4 @@
 package com.andrade.dennisse.proyectoandrade.ui.entities
-
 data class MoviesInfoUI (
 
     val id: Int,

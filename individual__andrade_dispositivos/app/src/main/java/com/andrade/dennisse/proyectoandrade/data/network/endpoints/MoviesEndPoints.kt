@@ -1,6 +1,7 @@
 package com.andrade.dennisse.proyectoandrade.data.network.endpoints
 
 import com.andrade.dennisse.proyectoandrade.data.network.entities.movies.MoviesAPI
+import com.andrade.dennisse.proyectoandrade.data.network.entities.tv.TVApi
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -23,7 +24,7 @@ interface MoviesEndPoints {
         @Query("language") language: String = "en-US",
         @Query("page") page: Int = 1,
         @Query("sort_by") sortBy: String = "popularity.desc"
-    ): Response<MoviesAPI>
+    ): Response<TVApi>
 }
 
 //IMPORTANTE

@@ -16,7 +16,15 @@
         android:label="fragment_save_fire_store"
         tools:layout="@layout/fragment_save_fire_store" >
         <action
+            android:id="@+id/action_saveFireStoreFragment_to_listarTVPopularityFragment"
+            app:destination="@id/listarTVPopularityFragment" />
+        <action
             android:id="@+id/action_saveFireStoreFragment_to_listarMoviesPopularityFragment"
             app:destination="@id/listarMoviesPopularityFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listarTVPopularityFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.ListarTVPopularityFragment"
+        android:label="fragment_listar_tv_popularity"
+        tools:layout="@layout/fragment_listar_tv_popularity" />
 </navigation>

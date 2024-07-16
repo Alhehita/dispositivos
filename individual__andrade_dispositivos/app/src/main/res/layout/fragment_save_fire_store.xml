@@ -47,6 +47,13 @@
         android:layout_marginTop="30dp"
         android:text="Listar"/>
 
+    <Button
+        android:id="@+id/btnlistTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="ListarTV"/>
+
     <include
         android:id="@+id/lytLoading"
         layout="@layout/loading_layout"

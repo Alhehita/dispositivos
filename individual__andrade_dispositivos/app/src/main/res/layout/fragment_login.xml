@@ -83,7 +83,7 @@
         android:backgroundTint="#F694C1"
         android:drawableLeft="@drawable/login_24px"
         android:fontFamily="sans-serif-thin"
-        android:text="Usuario"
+        android:text="Ingresar"
         android:textColor="#8F3985"
         android:textSize="@dimen/text_size_18"
         android:textStyle="bold"

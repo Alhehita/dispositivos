@@ -20,32 +20,34 @@ import com.andrade.dennisse.proyectoandrade.databinding.FragmentSaveFireStoreBin
 import com.andrade.dennisse.proyectoandrade.ui.entities.users.UserLogin
 
 
-
 class SaveFireStoreFragment : Fragment() {
 
     private lateinit var binding: FragmentSaveFireStoreBinding
     private lateinit var db: FirebaseFirestore
-    private lateinit var auth:FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= FragmentSaveFireStoreBinding.bind(inflater.inflate(R.layout.fragment_save_fire_store
-        ,container,false))
+        binding = FragmentSaveFireStoreBinding.bind(
+            inflater.inflate(
+                R.layout.fragment_save_fire_store, container, false
+            )
+        )
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-         db= Firebase.firestore
-        auth=Firebase.auth
+        db = Firebase.firestore
+        auth = Firebase.auth
 
         initListeners()
     }
 
     private fun initListeners() {
-        binding.btnSave.setOnClickListener{
+        binding.btnSave.setOnClickListener {
             val user = UserLogin(
                 auth.currentUser!!.uid, //Con esto anexo el email con los demas dato del usuario.
                 binding.Name.text.toString(),
@@ -63,14 +65,17 @@ class SaveFireStoreFragment : Fragment() {
                 }
         }
 
-        binding.btnGet.setOnClickListener{
+        binding.btnGet.setOnClickListener {
             db.collection("users")
-                .whereEqualTo("uuid",auth.currentUser!!.uid)//Me devolveria un valor igual al anterior
+                .whereEqualTo(
+                    "uuid",
+                    auth.currentUser!!.uid
+                )//Me devolveria un valor igual al anterior
                 .get()
                 .addOnSuccessListener { result ->
-                    result.forEach{
-                      val s=  it.toObject<UserLogin>() //JSON  de FIREBASE me lo pasa a DATA Class
-                        binding.txtData.text=s.name  //NUEVA FORMA
+                    result.forEach {
+                        val s = it.toObject<UserLogin>() //JSON  de FIREBASE me lo pasa a DATA Class
+                        binding.txtData.text = s.name  //NUEVA FORMA
                         //binding.txtData.text=it.get("name").toString() //Con el WHERE  ANTIGUA FORMA
                     }
                     /*+
@@ -85,8 +90,12 @@ class SaveFireStoreFragment : Fragment() {
                 }
         }
 
-        binding.btnlist.setOnClickListener{
+        binding.btnlist.setOnClickListener {
             findNavController().navigate(R.id.action_saveFireStoreFragment_to_listarMoviesPopularityFragment)
+        }
+
+        binding.btnlistTV.setOnClickListener {
+            findNavController().navigate(R.id.action_saveFireStoreFragment_to_listarTVPopularityFragment)
         }
     }
 
