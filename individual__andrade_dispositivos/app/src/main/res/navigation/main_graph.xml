@@ -3,28 +3,92 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
-    app:startDestination="@id/saveFireStoreFragment">
+    app:startDestination="@id/opcionesFragment">
 
     <fragment
         android:id="@+id/listarMoviesPopularityFragment"
         android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.ListarMoviesPopularityFragment"
         android:label="fragment_listar_movies_popularity"
-        tools:layout="@layout/fragment_listar_movies_popularity" />
-    <fragment
-        android:id="@+id/saveFireStoreFragment"
-        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.SaveFireStoreFragment"
-        android:label="fragment_save_fire_store"
-        tools:layout="@layout/fragment_save_fire_store" >
+        tools:layout="@layout/fragment_listar_movies_popularity" >
         <action
-            android:id="@+id/action_saveFireStoreFragment_to_listarTVPopularityFragment"
-            app:destination="@id/listarTVPopularityFragment" />
-        <action
-            android:id="@+id/action_saveFireStoreFragment_to_listarMoviesPopularityFragment"
-            app:destination="@id/listarMoviesPopularityFragment" />
+            android:id="@+id/action_listarMoviesPopularityFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/listarTVPopularityFragment"
         android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.ListarTVPopularityFragment"
         android:label="fragment_listar_tv_popularity"
-        tools:layout="@layout/fragment_listar_tv_popularity" />
+        tools:layout="@layout/fragment_listar_tv_popularity" >
+        <action
+            android:id="@+id/action_listarTVPopularityFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/opcionesFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.OpcionesFragment"
+        android:label="fragment_opciones"
+        tools:layout="@layout/fragment_opciones" >
+        <action
+            android:id="@+id/action_opcionesFragment_to_listarMoviesPopularityFragment"
+            app:destination="@id/listarMoviesPopularityFragment" />
+        <action
+            android:id="@+id/action_opcionesFragment_to_listarTVPopularityFragment"
+            app:destination="@id/listarTVPopularityFragment" />
+        <action
+            android:id="@+id/action_opcionesFragment_to_listarSeriesRatedFragment"
+            app:destination="@id/listarSeriesRatedFragment" />
+        <action
+            android:id="@+id/action_opcionesFragment_to_listarMoviesRatedFragment"
+            app:destination="@id/listarMoviesRatedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.SaveFireStoreFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_save_fire_store">
+        <action
+            android:id="@+id/action_navigation_profile_to_fragmentlogin"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listarSeriesRatedFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.ListarSeriesRatedFragment"
+        android:label="ListarSeriesRatedFragment" >
+        <action
+            android:id="@+id/action_listarSeriesRatedFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <action
+            android:id="@+id/action_movieDetailFragment_to_imageFullScreenFragment"
+            app:destination="@id/imageFullScreenFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/listarMoviesRatedFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.ListarMoviesRatedFragment"
+        android:label="fragment_listar_rated_movies"
+        tools:layout="@layout/fragment_listar_rated_movies" >
+        <action
+            android:id="@+id/action_listarMoviesRatedFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageFullScreenFragment"
+        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.main.ImageFullScreenFragment">
+        <argument
+            android:name="poster_path"
+            app:argType="string" />
+    </fragment>
+
+
+
 </navigation>

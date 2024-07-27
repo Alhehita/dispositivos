@@ -11,9 +11,6 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_recoveyFragment"
-            app:destination="@id/recoveyFragment" />
-        <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
     </fragment>
@@ -28,9 +25,4 @@
             app:destination="@id/loginFragment" />
     </fragment>
 
-    <fragment
-        android:id="@+id/recoveyFragment"
-        android:name="com.andrade.dennisse.proyectoandrade.ui.fragments.login.RecoveryFragment"
-        android:label="fragment_recovey"
-        tools:layout="@layout/fragment_recovery" />
 </navigation>

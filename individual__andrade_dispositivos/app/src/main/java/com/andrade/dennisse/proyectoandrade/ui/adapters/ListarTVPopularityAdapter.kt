@@ -9,19 +9,22 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.andrade.dennisse.proyectoandrade.R
 import com.andrade.dennisse.proyectoandrade.databinding.ItemTvInfoBinding
+import com.andrade.dennisse.proyectoandrade.ui.entities.MoviesInfoUI
 import com.andrade.dennisse.proyectoandrade.ui.entities.tv.TVInfoUI
 
-class ListarTVPopularityAdapter :
+class ListarTVPopularityAdapter(private val onClick: (TVInfoUI) -> Unit) :
     ListAdapter<TVInfoUI, ListarTVPopularityAdapter.TvVH>(DiffUtilTVCallback) {
 
     class TvVH(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemTvInfoBinding.bind(view)
 
-        fun render(item: TVInfoUI) {
+        fun render(item: TVInfoUI, onClick: (TVInfoUI) -> Unit) {
             binding.imageView.load("https://image.tmdb.org/t/p/w500" + item.poster_path)
             binding.titulo.text = item.title
             binding.titutloOriginal.text = item.original_title
-            binding.idioma.text = item.original_language
+
+            itemView.setOnClickListener { onClick(item) }
+
         }
     }
 
@@ -38,7 +41,7 @@ class ListarTVPopularityAdapter :
 
     override fun onBindViewHolder(holder: TvVH, position: Int) {
         holder.render(
-            getItem(position)
+            getItem(position),onClick
         )
     }
 

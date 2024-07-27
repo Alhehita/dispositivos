@@ -4,6 +4,7 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/my_primary</item>
+        <item name="buttonStyle">@style/ButtonStyle</item>
     </style>
 
 
@@ -15,4 +16,53 @@
     </style>
 
     <style name="Theme.ProyectoAndrade" parent="Base.Theme.ProyectoAndrade" />
+
+    <style name="ButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/custom_button_background</item>
+        <item name="android:textColor">#DE89BE</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:backgroundTint">#FDCFF3</item>
+        <item name="android:radius">5dp</item>
+
+    </style>
+
+    <!-- Estilo para el BottomNavigationView -->
+    <style name="BottomNavigationViewStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:background">@drawable/bottom_nav_background</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item> <!-- Color de iconos -->
+        <item name="itemTextColor">@color/bottom_nav_item_color</item> <!-- Color del texto -->
+    </style>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">#F94144</item>
+        <item name="colorPrimaryVariant">#F3722C</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#F8961E</item>
+        <item name="colorSecondaryVariant">#F9844A</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorOnBackground">#1B1725</item>
+    </style>
+
+    <!-- Estilo para CardView -->
+    <style name="CardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">4dp</item>
+        <item name="cardCornerRadius">8dp</item>
+        <item name="android:backgroundTint">@color/colorBackground</item>
+    </style>
+
+
+    <!-- Estilo para TextView en títulos -->
+    <style name="TextViewTitleStyle">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <!-- Estilo para TextView en subtítulos -->
+    <style name="TextViewSubtitleStyle">
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
 </resources>

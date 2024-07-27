@@ -11,6 +11,8 @@ fun Result.toTVInfoUI() = TVInfoUI(
     this.original_name,
     this.name,
     this.popularity,
-    this.poster_path
+    this.poster_path,
+    this.overview,
+    this.first_air_date,
 
 )

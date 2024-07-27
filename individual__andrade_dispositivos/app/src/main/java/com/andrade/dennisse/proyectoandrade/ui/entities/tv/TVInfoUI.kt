@@ -8,5 +8,7 @@ data class TVInfoUI (
     val title: String,
     val popularity: Double,
     val poster_path: String,
+    val overview:String,
+    val firs_air_date:String
 
 )

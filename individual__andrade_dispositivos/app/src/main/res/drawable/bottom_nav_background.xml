@@ -1,0 +1,17 @@
+<!-- bottom_nav_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:centerColor="#ffd6ff"
+        android:endColor="#e7c6ff"
+        android:gradientRadius="450dp"
+        android:startColor="#c8b6ff"
+        android:type="radial" />
+
+    <stroke
+        android:width="2dp"
+        android:color="#b8c0ff" />
+
+    <corners android:radius="3dp" /> <!-- Bordes redondeados -->
+
+</shape>

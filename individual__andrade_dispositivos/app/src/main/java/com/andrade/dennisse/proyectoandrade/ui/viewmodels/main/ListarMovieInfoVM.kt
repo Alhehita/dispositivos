@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.andrade.dennisse.proyectoandrade.logic.usercase.movie.GetMovieInfoPopularityUserCase
 import com.andrade.dennisse.proyectoandrade.ui.core.UIStates
 import com.andrade.dennisse.proyectoandrade.ui.entities.MoviesInfoUI
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class ListarMovieInfoVM : ViewModel() {
@@ -19,17 +18,17 @@ class ListarMovieInfoVM : ViewModel() {
         Log.d("TAG", "Ingresando al VM")
         viewModelScope.launch {
             uiState.postValue(UIStates.Loading(true))
-            GetMovieInfoPopularityUserCase().invoke().collect{
-                respuesta-> respuesta.onSuccess { items->
-                itemsMovies.postValue(items)
-            }
-                respuesta.onFailure { uiState.postValue(UIStates.Error(it.message.toString()))
-                Log.d("TAG",it.message.toString())
+            GetMovieInfoPopularityUserCase().invoke().collect { respuesta ->
+                respuesta.onSuccess { items ->
+                    itemsMovies.postValue(items)
+                }
+                respuesta.onFailure {
+                    uiState.postValue(UIStates.Error(it.message.toString()))
+                    Log.d("TAG", it.message.toString())
                 }
             }
-            delay(500)
             uiState.postValue(UIStates.Loading(false))
-
         }
     }
+
 }

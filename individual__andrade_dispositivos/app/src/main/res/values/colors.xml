@@ -4,5 +4,26 @@
     <color name="white">#FFFFFFFF</color>
     <color name="white_50">#80FFFFFF</color>
     <color name="my_primary">#DAB6FC</color>
+    <color name="titulos">#231123</color>
+
+    <color name="button_pressed_color">#5a189a</color> <!-- Color al presionar -->
+    <color name="button_default_color">#C297B8</color> <!-- Color por defecto -->
+
+
+    <color name="bottom_nav_item_color">#8F3985</color> <!-- Color de iconos y texto -->
+    <color name="bottom_nav_item_color_selected">#F694C1</color> <!-- Color seleccionado -->
+
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#03DAC6</color>
+    <color name="colorOnSecondary">#000000</color>
+    <color name="colorError">#B00020</color>
+    <color name="colorOnError">#FFFFFF</color>
+    <color name="colorBackground">#DAE0F2</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#000000</color>
+    <color name="cardBackground">#F3722C</color>
+    <color name="textColorPrimary">#1B1725</color>
 
 </resources>

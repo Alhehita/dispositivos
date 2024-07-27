@@ -25,6 +25,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     buildTypes {
@@ -46,7 +47,12 @@ android {
     //añadido
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
+
+
+
+
 }
 
 dependencies {
@@ -77,26 +83,19 @@ dependencies {
     annotationProcessor(libs.room.compiler)
     ksp(libs.room.compiler.ksp)
 
-    //Biometric
-    implementation("androidx.biometric:biometric:1.1.0")
+    implementation(libs.androidx.biometric)
+    implementation(libs.androidx.splashscreen)
 
-    // SplashScreen
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation(libs.androidx.datastore)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 
-    // DataStore
-    implementation("androidx.datastore:datastore-preferences:1.1.1")
 
-    //Navigation Components
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation(libs.androidx.fragment)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.livedata)
 
-    // Fragment, activity viewmodel
-    implementation("androidx.fragment:fragment-ktx:1.8.0")
-    implementation("androidx.activity:activity-ktx:1.9.0")
-    // ViewModel
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2")
-    // LiveData
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.8.2")
 
 
     //Import FIREBASE BoM    SDK

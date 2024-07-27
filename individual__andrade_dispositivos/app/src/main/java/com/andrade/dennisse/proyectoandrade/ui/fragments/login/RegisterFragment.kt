@@ -1,6 +1,5 @@
 package com.andrade.dennisse.proyectoandrade.ui.fragments.login
 
-
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,12 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.firebase.auth.FirebaseAuth
 import com.andrade.dennisse.proyectoandrade.R
 import com.andrade.dennisse.proyectoandrade.databinding.FragmentRegisterBinding
 import com.andrade.dennisse.proyectoandrade.ui.core.ManageUIStates
 import com.andrade.dennisse.proyectoandrade.ui.viewmodels.login.RegisterFragmentVM
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterFragment : Fragment() {
 
@@ -80,11 +78,18 @@ class RegisterFragment : Fragment() {
             )
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
-                        Log.d("TAG", "signInWithEmail:success")
+                        Log.d("TAG", "createUserWithEmail:success")
                         val user = auth.currentUser
-                        // Continúa con el flujo de tu aplicación
+                        // Mostrar mensaje de registro satisfactorio
+                        Toast.makeText(
+                            requireActivity(),
+                            "Registro exitoso. ¡Bienvenido!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        // Navegar a LoginFragment
+                        findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
                     } else {
-                        Log.d("TAG", "signInWithEmail:failure", task.exception)
+                        Log.d("TAG", "createUserWithEmail:failure", task.exception)
                         Toast.makeText(
                             requireActivity(),
                             task.exception?.message.toString(),
@@ -95,23 +100,5 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun createLocalUser() {
-        MaterialAlertDialogBuilder(requireActivity())
-            .setTitle("Informacion")
-            .setMessage("Seguro de que desea guardar la informacion proporcionada?")
-            .setPositiveButton("Si") { dialog, id ->
-                binding.btnRegister.setOnClickListener {
-                    registerFragmentVM.saveUser(
-                        binding.txtEmail.text.toString().trim(),
-                        binding.etxtPassword.text.toString().trim(),
-                        requireContext()
-                    )
-                    dialog.dismiss()
-                }
-            }
-            .setNegativeButton("No") { dialog, id ->
-                dialog.cancel()
-            }
-            .show()
-    }
+
 }

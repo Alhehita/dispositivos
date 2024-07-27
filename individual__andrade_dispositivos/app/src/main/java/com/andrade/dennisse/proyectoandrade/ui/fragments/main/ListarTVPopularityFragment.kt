@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.andrade.dennisse.proyectoandrade.R
 import com.andrade.dennisse.proyectoandrade.databinding.FragmentListarMoviesPopularityBinding
@@ -20,7 +23,6 @@ import com.andrade.dennisse.proyectoandrade.ui.viewmodels.main.ListarTVInfoVM
 class ListarTVPopularityFragment : Fragment() {
 
     private lateinit var binding: FragmentListarTvPopularityBinding
-    private lateinit var adapter: ListarTVPopularityAdapter
     private val listarTVInfoVM: ListarTVInfoVM by viewModels()
     private lateinit var manageUIStates: ManageUIStates
 
@@ -28,7 +30,7 @@ class ListarTVPopularityFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentListarTvPopularityBinding.bind(
             inflater.inflate(
                 R.layout.fragment_listar_tv_popularity, container, false
@@ -47,20 +49,37 @@ class ListarTVPopularityFragment : Fragment() {
 
     private fun initVariables() {
         manageUIStates = ManageUIStates(requireActivity(), binding.lytLoading.mainLayout)
-        adapter = ListarTVPopularityAdapter()
+
+       val  adapter = ListarTVPopularityAdapter{series ->
+           val bundle = Bundle().apply {
+               putString("id", series.id.toString())
+               putString("title", series.title)
+               putString("original_title", series.original_title)
+               putString("original_language", series.original_language)
+               putString("poster_path", series.poster_path)
+               putString("description", series.overview)
+               putString("date", series.firs_air_date)
+           }
+           findNavController().navigate(R.id.action_listarTVPopularityFragment_to_movieDetailFragment, bundle)
+
+       }
+
         binding.rvListTVInfo.adapter = adapter
-        binding.rvListTVInfo.layoutManager = LinearLayoutManager(
-            requireActivity(), LinearLayoutManager.VERTICAL,
-            false
+        binding.rvListTVInfo.layoutManager = GridLayoutManager(
+            requireActivity(), 3 // Dos columnas
         )
+
+        val dividerItemDecoration = DividerItemDecoration(requireContext(), GridLayoutManager.VERTICAL)
+        dividerItemDecoration.setDrawable(requireContext().getDrawable(R.drawable.divider)!!)
+        binding.rvListTVInfo.addItemDecoration(dividerItemDecoration)
+
     }
 
     private fun initListeners() {}
 
     private fun initObservers() {
         listarTVInfoVM.itemsTV.observe(viewLifecycleOwner) {
-            Log.d("ListarTVPopularityFragment", "Datos observados: $it")
-            adapter.submitList(it)
+            (binding.rvListTVInfo.adapter as ListarTVPopularityAdapter).submitList(it)
         }
 
         listarTVInfoVM.uiState.observe(viewLifecycleOwner) {

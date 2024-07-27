@@ -1,62 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="25dp"
-    android:orientation="vertical"
+    android:layout_margin="5dp"
+    android:background="@drawable/background_color"
     tools:context=".ui.fragments.main.SaveFireStoreFragment">
 
-    <EditText
-        android:id="@+id/Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre"/>
-
-    <EditText
-        android:id="@+id/LastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Apellido"/>
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Guardar"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/logo"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/logo"
+        app:lottie_loop="true" />
 
     <TextView
-        android:id="@+id/txtData"
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"/>
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/titulos"
+        android:gravity="center"
+        android:text="Perfil"
+        android:textSize="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
-    <Button
-        android:id="@+id/btnGet"
-        android:layout_width="match_parent"
+
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Obtener"/>
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintVertical_bias="0.286">
 
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Nombre"
+            android:textColor="#780000"
+            android:textColorHint="#301A4B" />
 
-    <Button
-        android:id="@+id/btnlist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Listar"/>
+        <EditText
+            android:id="@+id/et_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Apellido"
+            android:textColor="#780000"
+            android:textColorHint="#301A4B" />
 
-    <Button
-        android:id="@+id/btnlistTV"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="ListarTV"/>
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Correo Electrónico"
+            android:inputType="textEmailAddress"
+            android:textColor="#780000"
+            android:textColorHint="#301A4B" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Contraseña"
+            android:textColor="#780000"
+            android:textColorHint="#301A4B" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#8FE4C1F9"
+            android:fontFamily="@font/nav"
+            android:padding="10dp"
+            android:text="Actualizar"
+            android:textColor="#d90429"
+            android:textSize="15dp" />
+    </LinearLayout>
 
     <include
-        android:id="@+id/lytLoading"
+        android:id="@+id/lyt_loading"
         layout="@layout/loading_layout"
         android:visibility="gone" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,8 @@
     android:orientation="vertical"
     tools:context=".ui.fragments.login.LoginFragment">
 
+
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/logo"
         android:layout_width="130dp"
@@ -46,7 +48,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:layout_marginTop="32dp"
-        android:drawableRight="@drawable/face_24px"
         android:fontFamily="sans-serif-thin"
         android:hint="Usuario"
         android:textColorHint="#323031"
@@ -58,26 +59,44 @@
         app:layout_constraintTop_toBottomOf="@id/titulo"
         app:layout_constraintVertical_bias="0.1" />
 
+
+
     <EditText
         android:id="@+id/etxt_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:drawableRight="@drawable/key_24px"
         android:fontFamily="sans-serif-thin"
         android:hint="Contraseña"
         android:textColorHint="#323031"
         android:textColor="@color/black"
         android:textSize="24sp"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxt_user"
+        app:layout_constraintTop_toBottomOf="@id/etxt_user"
         app:layout_constraintVertical_bias="0.1" />
+
+
+    <ImageButton
+        android:id="@+id/btn_show_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/show_password"
+        android:src="@drawable/visibility_24px"
+        app:layout_constraintBottom_toBottomOf="@id/etxt_password"
+        app:layout_constraintEnd_toEndOf="@id/etxt_password"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/etxt_password"
+        app:layout_constraintTop_toTopOf="@id/etxt_password"
+        app:layout_constraintVertical_bias="0.413" />
+
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="@dimen/btn_height"
         android:layout_margin="10dp"
         android:backgroundTint="#F694C1"
@@ -89,14 +108,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etxt_password"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.198" />
 
     <Button
         android:id="@+id/btn_register"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="@dimen/btn_height"
         android:layout_margin="10dp"
         android:backgroundTint="#F694C1"
@@ -108,35 +127,12 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.193" />
 
-    <ImageView
-        android:id="@+id/fingerprint"
-        android:layout_width="80dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="24dp"
-        android:src="@drawable/fingerprint_24px"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.909"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etxt_password"
-        app:layout_constraintVertical_bias="0.112" />
 
-    <TextView
-        android:id="@+id/btnRecovery"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_marginBottom="60dp"
-        android:text="Olvidé mi contraseña"
-        android:textStyle="bold"
-        android:textColor="#323031"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <include
         android:id="@+id/lytLoading"
